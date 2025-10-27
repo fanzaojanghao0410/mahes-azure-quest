@@ -1,14 +1,11 @@
 import Phaser from 'phaser';
-import { Question } from '@/types/game';
-import { Player } from './Player';
+import { gameManager } from '@/lib/gameManager';
 
-export class NPC {
-  public sprite: Phaser.GameObjects.Image;
-  private name: string;
-  private questions: Question[];
-  private currentQuestionIndex = 0;
-  private indicator?: Phaser.GameObjects.Text;
-  private scene: Phaser.Scene;
+export class NPC extends Phaser.Physics.Arcade.Sprite {
+  private npcName: string;
+  private questionId: string;
+  private hasInteracted: boolean = false;
+  private interactionIndicator!: Phaser.GameObjects.Text;
 
   constructor(
     scene: Phaser.Scene,
@@ -16,125 +13,85 @@ export class NPC {
     y: number,
     texture: string,
     name: string,
-    questions: Question[]
+    questionId: string
   ) {
-    this.scene = scene;
-    this.name = name;
-    this.questions = questions;
+    super(scene, x, y, texture);
+    
+    this.npcName = name;
+    this.questionId = questionId;
+    
+    scene.add.existing(this);
+    scene.physics.add.existing(this);
+    
+    this.setImmovable(true);
+    this.setScale(0.6);
 
-    this.sprite = scene.add.image(x, y, texture);
-    this.sprite.setDisplaySize(64, 64);
-    this.sprite.setDepth(10);
+    // Name label
+    const nameText = scene.add.text(x, y - 60, name, {
+      fontSize: '14px',
+      color: '#04314f',
+      backgroundColor: '#ffffff',
+      padding: { x: 8, y: 4 }
+    }).setOrigin(0.5);
 
-    // Create interaction indicator
-    this.indicator = scene.add.text(x, y - 50, '💬', {
-      fontSize: '24px',
-    });
-    this.indicator.setOrigin(0.5);
-    this.indicator.setVisible(false);
+    // Interaction indicator
+    this.interactionIndicator = scene.add.text(x, y - 80, '[ E ]', {
+      fontSize: '12px',
+      color: '#67c7ff',
+      backgroundColor: '#04314f',
+      padding: { x: 6, y: 3 }
+    }).setOrigin(0.5).setVisible(false);
+
+    // Check if already completed
+    const gameState = gameManager.loadGame();
+    if (gameState?.progress.completedChallenges.includes(this.questionId)) {
+      this.hasInteracted = true;
+      this.setTint(0x888888);
+    }
   }
 
-  interact(player: Player) {
-    if (this.currentQuestionIndex >= this.questions.length) {
-      // No more questions
-      this.showDialog('Terima kasih sudah membantu! Semoga perjalananmu sukses.');
+  update() {
+    // Show interaction prompt when player is near
+    const player = (this.scene as any).getPlayer?.();
+    if (player) {
+      const distance = Phaser.Math.Distance.Between(
+        this.x,
+        this.y,
+        player.x,
+        player.y
+      );
+      
+      this.interactionIndicator.setVisible(!this.hasInteracted && distance < 80);
+    }
+  }
+
+  interact() {
+    if (this.hasInteracted) {
+      this.showCompletedDialog();
       return;
     }
 
-    const question = this.questions[this.currentQuestionIndex];
-    
-    // Pause physics
-    this.scene.physics.pause();
-    
-    // Show question dialog through game events
-    this.scene.game.events.emit('showDialog', {
-      npcName: this.name,
-      text: question.scenario || question.question,
+    const question = gameManager.getQuestionById(this.questionId);
+    if (!question) {
+      console.error('Question not found:', this.questionId);
+      return;
+    }
+
+    // Emit event to show dialog
+    this.scene.events.emit('show-question-dialog', {
+      npc: this.npcName,
       question: question,
-    });
-  }
-
-  handleAnswer(optionId: string, player: Player) {
-    const question = this.questions[this.currentQuestionIndex];
-    const option = question.options.find(opt => opt.id === optionId);
-
-    if (option) {
-      // Apply effects
-      player.addXP(option.effect.score, this.scene);
-      player.addKarma(option.effect.karma);
-
-      // Check for item rewards
-      if (option.effect.item) {
-        if (option.effect.item.includes('crown')) {
-          player.addFragment('crown');
-        } else if (option.effect.item.includes('sash')) {
-          player.addFragment('sash');
-        }
+      onComplete: () => {
+        this.hasInteracted = true;
+        this.setTint(0x888888);
       }
-
-      // Move to next question
-      this.currentQuestionIndex++;
-
-      // Show feedback
-      this.showFeedback(option.effect.feedback, player);
-    }
-
-    // Resume physics
-    this.scene.physics.resume();
-  }
-
-  private showDialog(text: string) {
-    this.scene.game.events.emit('showDialog', {
-      npcName: this.name,
-      text: text,
     });
   }
 
-  private showFeedback(feedback: string, player: Player) {
-    const text = this.scene.add.text(
-      this.sprite.x,
-      this.sprite.y - 80,
-      feedback,
-      {
-        fontSize: '16px',
-        color: '#2b8af7',
-        backgroundColor: '#ffffff',
-        padding: { x: 10, y: 5 },
-      }
-    );
-    text.setOrigin(0.5);
-
-    this.scene.tweens.add({
-      targets: text,
-      y: text.y - 30,
-      alpha: 0,
-      duration: 3000,
-      ease: 'Power2',
-      onComplete: () => text.destroy(),
+  private showCompletedDialog() {
+    this.scene.events.emit('show-simple-dialog', {
+      npc: this.npcName,
+      text: 'Terima kasih sudah membantu! Semoga perjalananmu lancar.'
     });
-  }
-
-  showIndicator() {
-    if (this.indicator) {
-      this.indicator.setVisible(true);
-      
-      // Bounce animation
-      this.scene.tweens.add({
-        targets: this.indicator,
-        y: this.sprite.y - 55,
-        duration: 500,
-        yoyo: true,
-        repeat: -1,
-        ease: 'Sine.easeInOut',
-      });
-    }
-  }
-
-  hideIndicator() {
-    if (this.indicator) {
-      this.indicator.setVisible(false);
-      this.scene.tweens.killTweensOf(this.indicator);
-      this.indicator.y = this.sprite.y - 50;
-    }
   }
 }

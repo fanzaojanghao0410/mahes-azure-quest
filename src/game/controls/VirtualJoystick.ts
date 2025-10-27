@@ -2,83 +2,96 @@ import Phaser from 'phaser';
 
 export class VirtualJoystick {
   private scene: Phaser.Scene;
-  private base: Phaser.GameObjects.Image;
-  private knob: Phaser.GameObjects.Image;
-  private isDragging = false;
-  private forceX = 0;
-  private forceY = 0;
-  private maxDistance = 50;
+  private base!: Phaser.GameObjects.Image;
+  private thumb!: Phaser.GameObjects.Image;
+  private graphics!: Phaser.GameObjects.Graphics;
+  
+  public force: number = 0;
+  public angle: number = 0;
+  
+  private isDragging: boolean = false;
+  private radius: number = 60;
 
-  constructor(scene: Phaser.Scene, x: number, y: number) {
+  constructor(scene: Phaser.Scene) {
     this.scene = scene;
+    this.create();
+  }
 
-    // Create base
-    this.base = scene.add.image(x, y, 'joystick_base');
-    this.base.setDisplaySize(120, 120);
-    this.base.setScrollFactor(0);
-    this.base.setDepth(100);
-    this.base.setAlpha(0.6);
+  private create() {
+    const { width, height } = this.scene.cameras.main;
+    
+    // Create graphics for joystick
+    this.graphics = this.scene.add.graphics();
+    this.graphics.setScrollFactor(0);
+    this.graphics.setDepth(1000);
 
-    // Create knob
-    this.knob = scene.add.image(x, y, 'joystick_knob');
-    this.knob.setDisplaySize(60, 60);
-    this.knob.setScrollFactor(0);
-    this.knob.setDepth(101);
-    this.knob.setAlpha(0.8);
+    // Base circle
+    this.graphics.fillStyle(0x67c7ff, 0.3);
+    this.graphics.fillCircle(100, height - 100, this.radius);
+    this.graphics.lineStyle(3, 0x67c7ff, 0.8);
+    this.graphics.strokeCircle(100, height - 100, this.radius);
 
-    // Make knob interactive
-    this.knob.setInteractive({ draggable: true, useHandCursor: true });
+    // Thumb circle
+    this.graphics.fillStyle(0x2b8af7, 0.8);
+    this.graphics.fillCircle(100, height - 100, 30);
 
-    // Setup drag events
-    this.knob.on('dragstart', () => {
+    // Make interactive
+    const zone = this.scene.add.zone(100, height - 100, this.radius * 2, this.radius * 2)
+      .setOrigin(0.5)
+      .setInteractive()
+      .setScrollFactor(0)
+      .setDepth(1000);
+
+    zone.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
       this.isDragging = true;
-      this.base.setAlpha(0.8);
-      this.knob.setAlpha(1);
     });
 
-    this.knob.on('drag', (_pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
-      const baseX = this.base.x;
-      const baseY = this.base.y;
-      
-      const angle = Math.atan2(dragY - baseY, dragX - baseX);
-      const distance = Math.min(
-        Phaser.Math.Distance.Between(baseX, baseY, dragX, dragY),
-        this.maxDistance
-      );
-
-      this.knob.x = baseX + Math.cos(angle) * distance;
-      this.knob.y = baseY + Math.sin(angle) * distance;
-
-      // Calculate force (-1 to 1)
-      this.forceX = (this.knob.x - baseX) / this.maxDistance;
-      this.forceY = (this.knob.y - baseY) / this.maxDistance;
+    this.scene.input.on('pointermove', (pointer: Phaser.Input.Pointer) => {
+      if (this.isDragging) {
+        this.updateJoystick(pointer);
+      }
     });
 
-    this.knob.on('dragend', () => {
+    this.scene.input.on('pointerup', () => {
       this.isDragging = false;
-      
-      // Animate knob back to center
-      scene.tweens.add({
-        targets: this.knob,
-        x: this.base.x,
-        y: this.base.y,
-        duration: 100,
-        ease: 'Power1',
-      });
-
-      this.forceX = 0;
-      this.forceY = 0;
-      this.base.setAlpha(0.6);
-      this.knob.setAlpha(0.8);
+      this.force = 0;
+      this.redraw();
     });
   }
 
-  getForce(): { x: number; y: number } {
-    return { x: this.forceX, y: this.forceY };
+  private updateJoystick(pointer: Phaser.Input.Pointer) {
+    const { height } = this.scene.cameras.main;
+    const baseX = 100;
+    const baseY = height - 100;
+
+    const dx = pointer.x - baseX;
+    const dy = pointer.y - baseY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    this.angle = Math.atan2(dy, dx);
+    this.force = Math.min(distance / this.radius, 1);
+
+    this.redraw();
   }
 
-  destroy() {
-    this.base.destroy();
-    this.knob.destroy();
+  private redraw() {
+    const { height } = this.scene.cameras.main;
+    const baseX = 100;
+    const baseY = height - 100;
+
+    this.graphics.clear();
+
+    // Base
+    this.graphics.fillStyle(0x67c7ff, 0.3);
+    this.graphics.fillCircle(baseX, baseY, this.radius);
+    this.graphics.lineStyle(3, 0x67c7ff, 0.8);
+    this.graphics.strokeCircle(baseX, baseY, this.radius);
+
+    // Thumb position
+    const thumbX = baseX + Math.cos(this.angle) * this.force * this.radius * 0.7;
+    const thumbY = baseY + Math.sin(this.angle) * this.force * this.radius * 0.7;
+
+    this.graphics.fillStyle(0x2b8af7, 0.8);
+    this.graphics.fillCircle(thumbX, thumbY, 30);
   }
 }
