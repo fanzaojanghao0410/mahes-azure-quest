@@ -225,30 +225,34 @@ const Index = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen">
       {phase === 'landing' && (
-        <LandingPage
-          onStartGame={handleStartGame}
-          onShowLeaderboard={handleShowLeaderboard}
-        />
+        <div className="page-transition">
+          <LandingPage
+            onStartGame={handleStartGame}
+            onShowLeaderboard={handleShowLeaderboard}
+          />
+        </div>
       )}
 
       {phase === 'setup' && (
-        <PlayerSetup onComplete={handlePlayerSetup} />
+        <div className="page-transition">
+          <PlayerSetup onComplete={handlePlayerSetup} />
+        </div>
       )}
 
       {phase === 'map' && (
-        <>
+        <div className="page-transition">
           <GameHUD gameState={gameState} />
           <RegionMap
             progress={gameState.progress}
             onSelectRegion={handleSelectRegion}
           />
-        </>
+        </div>
       )}
 
       {phase === 'challenge' && currentQuestion && (
-        <>
+        <div className="page-transition">
           <GameHUD gameState={gameState} />
           <ChallengeScreen
             question={currentQuestion}
@@ -256,7 +260,7 @@ const Index = () => {
             onUseHint={handleUseHint}
             hintsAvailable={gameState.inventory.hints}
           />
-        </>
+        </div>
       )}
 
       {phase === 'feedback' && currentAnswer && (
@@ -273,20 +277,22 @@ const Index = () => {
       )}
 
       {phase === 'ending' && (
-        <EndingScreen
-          endingType={gameManager.calculateEnding(
-            gameState.stats.karma,
-            gameManager.hasAllFragments(gameState)
-          )}
-          stats={{
-            score: gameState.stats.score,
-            karma: gameState.stats.karma,
-            time: gameState.stats.playTime,
-            hintsUsed: gameState.stats.hintsUsed
-          }}
-          onPlayAgain={handlePlayAgain}
-          onSaveToLeaderboard={handleSaveToLeaderboard}
-        />
+        <div className="page-transition">
+          <EndingScreen
+            endingType={gameManager.calculateEnding(
+              gameState.stats.karma,
+              gameManager.hasAllFragments(gameState)
+            )}
+            stats={{
+              score: gameState.stats.score,
+              karma: gameState.stats.karma,
+              time: gameState.stats.playTime,
+              hintsUsed: gameState.stats.hintsUsed
+            }}
+            onPlayAgain={handlePlayAgain}
+            onSaveToLeaderboard={handleSaveToLeaderboard}
+          />
+        </div>
       )}
 
       {phase === 'leaderboard' && (
@@ -295,7 +301,7 @@ const Index = () => {
           onClose={handleCloseLeaderboard}
         />
       )}
-    </>
+    </div>
   );
 };
 
