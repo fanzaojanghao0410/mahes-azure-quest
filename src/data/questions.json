@@ -2,1331 +2,369 @@
   "questions": [
     {
       "id": "q001",
-      "region": "pulau_awan",
+      "region": "emerald_forest",
       "type": "puzzle",
       "category": "logic",
       "difficulty": 1,
-      "title": "Pola Angka Ajaib",
-      "question": "Lengkapi urutan angka berikut: 2, 4, 8, 16, ?",
+      "title": "Sequential Pattern Challenge",
+      "question": "Complete the sequence: 2, 4, 8, 16, ?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "24",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Hampir! Perhatikan pola perkaliannya."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "32",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 5,
-            "item": "fragment_crown_1",
-            "feedback": "Benar! Setiap angka adalah hasil kali 2 dari angka sebelumnya. Kamu mendapatkan fragmen mahkota pertama!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "20",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Coba perhatikan lagi polanya dengan teliti."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "28",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Bukan itu jawabannya. Pikirkan tentang perkalian!"
-          }
-        }
+        {"id": "opt_a", "text": "24", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Close! Pay attention to the multiplication pattern."}},
+        {"id": "opt_b", "text": "32", "isCorrect": true, "effect": {"score": 100, "karma": 5, "item": "fragment_crown_1", "feedback": "Correct! Each number is multiplied by 2. You obtained the first crown fragment!"}},
+        {"id": "opt_c", "text": "20", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Examine the pattern more carefully."}},
+        {"id": "opt_d", "text": "28", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Not quite. Think about multiplication!"}}
       ],
-      "hints": ["Perhatikan bahwa setiap angka dikalikan dengan 2", "16 x 2 = ?"],
+      "hints": ["Notice each number is multiplied by 2", "16 x 2 = ?"],
       "timeLimit": 60,
       "tags": ["math", "pattern"]
     },
     {
       "id": "q002",
-      "region": "pulau_awan",
+      "region": "emerald_forest",
+      "type": "puzzle",
+      "category": "critical_thinking",
+      "difficulty": 2,
+      "title": "The Bridge Riddle",
+      "question": "Four people need to cross a bridge at night with only one torch. The bridge can hold only two people at a time. Person A takes 1 minute, B takes 2 minutes, C takes 5 minutes, and D takes 10 minutes. What's the minimum time needed for all to cross?",
+      "options": [
+        {"id": "opt_a", "text": "17 minutes", "isCorrect": true, "effect": {"score": 150, "karma": 10, "item": "fragment_crown_2", "feedback": "Brilliant! A&B cross (2min), A returns (1min), C&D cross (10min), B returns (2min), A&B cross (2min) = 17 minutes total!"}},
+        {"id": "opt_b", "text": "18 minutes", "isCorrect": false, "effect": {"score": 50, "karma": 2, "feedback": "Close! Try optimizing who crosses together."}},
+        {"id": "opt_c", "text": "19 minutes", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "There's a more efficient strategy."}},
+        {"id": "opt_d", "text": "21 minutes", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "That's the simple approach. Think strategically!"}}
+      ],
+      "hints": ["The slowest should cross together", "Think about who should return with the torch"],
+      "timeLimit": 90,
+      "tags": ["logic", "optimization"]
+    },
+    {
+      "id": "q003",
+      "region": "emerald_forest",
       "type": "moral",
       "category": "ethical_dilemma",
       "difficulty": 2,
-      "title": "Penjaga yang Kesepian",
-      "scenario": "Kamu bertemu seorang penjaga tua di pulau ini. Dia menawarkan untuk memberitahu lokasi fragmen mahkota, tetapi memintamu untuk menemaninya berbincang selama 1 jam.",
-      "question": "Apa yang akan kamu lakukan?",
+      "title": "The Lonely Guardian",
+      "scenario": "You encounter an elderly guardian who offers crown fragment info in exchange for your time and companionship.",
+      "question": "What will you do?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Menemani penjaga dan mendengarkan ceritanya dengan tulus",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 15,
-            "item": "hint",
-            "feedback": "Kebaikan hatimu membuat penjaga senang. Dia memberikan petunjuk berharga untukmu!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Menemaninya sebentar lalu pamit dengan sopan",
-          "isCorrect": true,
-          "effect": {
-            "score": 30,
-            "karma": 5,
-            "feedback": "Penjaga mengerti kesibukanmu. Setidaknya kamu meluangkan waktu sejenak."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Langsung menanyakan lokasi fragmen tanpa basa-basi",
-          "isCorrect": true,
-          "effect": {
-            "score": 10,
-            "karma": -5,
-            "feedback": "Penjaga terlihat kecewa dengan sikapmu yang tergesa-gesa."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Mengabaikannya dan mencari sendiri",
-          "isCorrect": true,
-          "effect": {
-            "score": 5,
-            "karma": -10,
-            "feedback": "Kamu kehilangan kesempatan untuk mendapat bantuan. Penjaga terlihat sedih."
-          }
-        }
+        {"id": "opt_a", "text": "Spend time listening to his stories genuinely", "isCorrect": true, "effect": {"score": 80, "karma": 15, "item": "hint", "feedback": "Your kindness touches his heart. He shares valuable wisdom!"}},
+        {"id": "opt_b", "text": "Chat briefly and politely excuse yourself", "isCorrect": true, "effect": {"score": 40, "karma": 5, "feedback": "The guardian understands your time constraints."}},
+        {"id": "opt_c", "text": "Ask for the location directly", "isCorrect": true, "effect": {"score": 10, "karma": -5, "feedback": "The guardian seems disappointed by your haste."}},
+        {"id": "opt_d", "text": "Ignore him and search alone", "isCorrect": true, "effect": {"score": 0, "karma": -10, "feedback": "You missed an opportunity for help. The guardian looks sad."}}
       ],
       "hints": [],
       "timeLimit": 45,
       "tags": ["empathy", "kindness"]
     },
     {
-      "id": "q003",
-      "region": "pulau_awan",
-      "type": "puzzle",
-      "category": "memory",
-      "difficulty": 2,
-      "title": "Simbol Kuno",
-      "question": "Hafal urutan simbol ini: ☁️ ⚡ 🌟 💎 ⭐. Ulangi dengan benar!",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "☁️ ⚡ 🌟 💎 ⭐",
-          "isCorrect": true,
-          "effect": {
-            "score": 150,
-            "karma": 5,
-            "item": "fragment_crown_2",
-            "feedback": "Sempurna! Ingatanmu luar biasa. Fragmen mahkota kedua milikmu!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "☁️ 🌟 ⚡ 💎 ⭐",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Urutannya tidak tepat. Coba ingat lagi dengan teliti!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "⚡ ☁️ 🌟 💎 ⭐",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Hampir benar, tapi simbol pertama salah."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "☁️ ⚡ 💎 🌟 ⭐",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Simbol di tengah terbalik urutannya."
-          }
-        }
-      ],
-      "hints": ["Fokus pada dua simbol pertama", "Ingat bahwa ada petir setelah awan"],
-      "timeLimit": 30,
-      "tags": ["memory", "pattern"]
-    },
-    {
       "id": "q004",
-      "region": "pulau_awan",
-      "type": "moral",
-      "category": "ethical_dilemma",
-      "difficulty": 2,
-      "title": "Peta atau Kompas?",
-      "scenario": "Kamu menemukan sebuah peti berisi peta menuju mahkota dan kompas ajaib. Namun, hanya bisa mengambil satu. Petualang lain di belakangmu juga membutuhkannya.",
-      "question": "Apa pilihanmu?",
+      "region": "emerald_forest",
+      "type": "puzzle",
+      "category": "analytical_thinking",
+      "difficulty": 3,
+      "title": "The Water Jug Problem",
+      "question": "You have a 5-liter jug and a 3-liter jug. How can you measure exactly 4 liters of water?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Ambil peta dan biarkan kompas untuk petualang lain",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 10,
-            "feedback": "Keputusan yang adil. Kalian berdua bisa melanjutkan perjalanan!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Ambil kompas dan biarkan peta untuk yang lain",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 10,
-            "feedback": "Pilihan yang bijak. Berbagi adalah tindakan mulia!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Tawarkan untuk berpetualang bersama menggunakan kedua item",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 20,
-            "item": "hint",
-            "feedback": "Luar biasa! Kerja sama adalah kunci. Kalian berdua mendapat bonus petunjuk!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Ambil keduanya dengan cepat sebelum yang lain sempat bereaksi",
-          "isCorrect": true,
-          "effect": {
-            "score": 10,
-            "karma": -15,
-            "feedback": "Tindakan egois. Petualang lain memandangmu dengan kecewa."
-          }
-        }
+        {"id": "opt_a", "text": "Fill 5L, pour into 3L (leaving 2L), empty 3L, pour the 2L into 3L, fill 5L again, pour into 3L until full (adds 1L), leaving 4L in 5L jug", "isCorrect": true, "effect": {"score": 200, "karma": 10, "item": "fragment_sash_1", "feedback": "Excellent problem-solving! You earned a sash fragment!"}},
+        {"id": "opt_b", "text": "Fill 3L twice and estimate", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "That's not precise. Think step-by-step."}},
+        {"id": "opt_c", "text": "Use both jugs alternately until it looks right", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "You need an exact measurement strategy."}},
+        {"id": "opt_d", "text": "It's impossible with these jugs", "isCorrect": false, "effect": {"score": 0, "karma": -5, "feedback": "Don't give up! There's always a solution."}}
       ],
-      "hints": [],
-      "timeLimit": 40,
-      "tags": ["cooperation", "fairness"]
+      "hints": ["Work backwards from 4 liters", "Use the difference between jug sizes"],
+      "timeLimit": 120,
+      "tags": ["logic", "problem_solving"]
     },
     {
       "id": "q005",
-      "region": "pulau_awan",
-      "type": "event",
-      "category": "lore",
-      "difficulty": 1,
-      "title": "Gerbang Awan",
-      "scenario": "Kamu tiba di gerbang menuju bagian dalam pulau. Penjaga gerbang bertanya: 'Apa yang lebih berat, 1 kg emas atau 1 kg bulu?'",
-      "question": "Jawab dengan benar untuk melewati gerbang!",
+      "region": "emerald_forest",
+      "type": "puzzle",
+      "category": "creative_thinking",
+      "difficulty": 2,
+      "title": "The Nine Dots Puzzle",
+      "question": "Connect all 9 dots arranged in a 3x3 grid using only 4 straight lines without lifting your pen. What's the key insight?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "1 kg emas",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Penjaga menggeleng. 'Pikirkan lagi tentang berat dan massa.'"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Sama berat",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 5,
-            "item": "fragment_crown_3",
-            "feedback": "Benar! Gerbang terbuka. Kamu mendapat fragmen mahkota ketiga!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "1 kg bulu",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Penjaga tersenyum. 'Bukan itu jawabannya, petualang muda.'"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tergantung gravitasi",
-          "isCorrect": false,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Menarik, tapi bukan jawaban yang dicari. Penjaga memberimu kesempatan lagi."
-          }
-        }
+        {"id": "opt_a", "text": "Think outside the box - extend lines beyond the grid boundary", "isCorrect": true, "effect": {"score": 150, "karma": 10, "feedback": "Perfect! Creative thinking means breaking assumptions!"}},
+        {"id": "opt_b", "text": "Use diagonal lines only within the grid", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "That won't connect all dots in 4 lines."}},
+        {"id": "opt_c", "text": "It's impossible with 4 lines", "isCorrect": false, "effect": {"score": 0, "karma": -5, "feedback": "Challenge your assumptions!"}},
+        {"id": "opt_d", "text": "Use very thick lines to cover multiple dots", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Creative, but not the intended solution!"}}
       ],
-      "hints": ["1 kilogram adalah satuan massa", "Perhatikan kata 'sama-sama 1 kg'"],
-      "timeLimit": 45,
-      "tags": ["riddle", "logic"]
+      "hints": ["Don't limit yourself to the grid's boundaries", "The solution requires thinking unconventionally"],
+      "timeLimit": 75,
+      "tags": ["creativity", "lateral_thinking"]
     },
     {
       "id": "q006",
-      "region": "hutan_biru",
-      "type": "puzzle",
-      "category": "cipher",
-      "difficulty": 3,
-      "title": "Pesan Terenkripsi",
-      "question": "Dekripsi pesan ini: 'NBIIWQ' (kunci: geser 1 huruf mundur dalam alfabet)",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "MAHKOTA",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Coba geser setiap huruf satu langkah mundur di alfabet."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "MAHES",
-          "isCorrect": true,
-          "effect": {
-            "score": 200,
-            "karma": 10,
-            "item": "fragment_sash_1",
-            "feedback": "Sempurna! N→M, B→A, I→H, I→E, W→S. Fragmen selempang pertama milikmu!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "SELEMPANG",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Jumlah hurufnya tidak sesuai dengan pesan terenkripsi."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "OCJJXR",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Kamu menggeser ke arah yang salah. Coba mundur, bukan maju."
-          }
-        }
-      ],
-      "hints": ["N mundur 1 huruf = M", "Geser semua huruf satu langkah ke belakang"],
-      "timeLimit": 90,
-      "tags": ["cipher", "decode"]
-    },
-    {
-      "id": "q007",
-      "region": "hutan_biru",
-      "type": "moral",
-      "category": "ethical_dilemma",
-      "difficulty": 2,
-      "title": "Pohon Bernyawa",
-      "scenario": "Kamu menemukan fragmen selempang di dalam pohon tua yang masih hidup. Untuk mengambilnya, kamu harus melukai pohon tersebut.",
-      "question": "Apa yang akan kamu lakukan?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Lukai pohon dengan hati-hati dan minta maaf, lalu rawat lukanya",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 5,
-            "feedback": "Pohon memahami keperluanmu. Kamu mengambil fragmen dengan penuh rasa hormat."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Cari cara lain untuk mendapatkan fragmen tanpa melukai pohon",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 15,
-            "item": "hint",
-            "feedback": "Kesabaranmu dihargai! Pohon melepaskan fragmen dengan sukarela dan memberimu petunjuk."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Langsung merobek kulit pohon untuk mengambil fragmen cepat",
-          "isCorrect": true,
-          "effect": {
-            "score": 25,
-            "karma": -10,
-            "feedback": "Kamu mendapat fragmen, tapi hutan seakan murka. Daun-daun bergetar."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tinggalkan fragmen dan lanjutkan perjalanan",
-          "isCorrect": true,
-          "effect": {
-            "score": 30,
-            "karma": 10,
-            "feedback": "Rasa hormatmu pada alam dihargai, meski kamu kehilangan fragmen."
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 50,
-      "tags": ["nature", "respect"]
-    },
-    {
-      "id": "q008",
-      "region": "hutan_biru",
+      "region": "luminara_city",
       "type": "puzzle",
       "category": "logic",
-      "difficulty": 3,
-      "title": "Jembatan Tiga Jalur",
-      "question": "Ada 3 jembatan: Jembatan A selalu aman, B kadang runtuh, C pasti runtuh. Kamu melihat petualang lain melewati salah satunya dengan selamat. Jembatan mana yang dia lewati?",
+      "difficulty": 2,
+      "title": "The Liar's Paradox",
+      "question": "Three guardians stand before you. One always tells the truth, one always lies, and one answers randomly. You can ask one yes/no question to one guardian to find the safe path. What do you ask?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Jembatan A",
-          "isCorrect": true,
-          "effect": {
-            "score": 150,
-            "karma": 5,
-            "item": "fragment_sash_2",
-            "feedback": "Benar! Hanya jembatan A yang pasti aman. Fragmen selempang kedua didapat!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Jembatan B",
-          "isCorrect": false,
-          "effect": {
-            "score": 50,
-            "karma": 0,
-            "feedback": "Mungkin, tapi tidak pasti. Ada kemungkinan dia beruntung."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Jembatan C",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Tidak mungkin. Jembatan C pasti runtuh!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tidak bisa dipastikan",
-          "isCorrect": false,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Sebenarnya bisa dipastikan jika dia selamat."
-          }
-        }
+        {"id": "opt_a", "text": "Ask any guardian: 'If I asked you if the left path is safe, would you say yes?' - then go opposite if liar detected", "isCorrect": false, "effect": {"score": 50, "karma": 0, "feedback": "That could work with two guardians, but the random one complicates it."}},
+        {"id": "opt_b", "text": "Ask: 'If I asked the truth-teller which path is safe, what would they say?' to the middle guardian", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "You don't know which one is which yet!"}},
+        {"id": "opt_c", "text": "Ask any guardian: 'Is the left path safe?' and use probability", "isCorrect": false, "effect": {"score": 0, "karma": -5, "feedback": "Too risky with the random guardian!"}},
+        {"id": "opt_d", "text": "Ask: 'If I asked you if you're the random guardian, would you say yes?' - the random one gives random answers", "isCorrect": true, "effect": {"score": 200, "karma": 15, "item": "fragment_crown_3", "feedback": "Ingenious! Truth-teller says no, liar says no, random is random. You identified the pattern!"}}
       ],
-      "hints": ["Jika C pasti runtuh, dia tidak mungkin lewat sana", "Pikirkan jembatan mana yang PASTI aman"],
-      "timeLimit": 60,
+      "hints": ["The key is identifying the random guardian first", "Both truth-teller and liar would answer consistently to meta-questions"],
+      "timeLimit": 120,
       "tags": ["logic", "deduction"]
     },
     {
-      "id": "q009",
-      "region": "hutan_biru",
-      "type": "event",
-      "category": "lore",
-      "difficulty": 2,
-      "title": "Peri Hutan",
-      "scenario": "Peri hutan muncul dan menawarkan pertukaran: dia akan memberimu fragmen jika kamu membantunya menyirami 10 tanaman langka.",
-      "question": "Apakah kamu menerima tawarannya?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Terima dan bantu dengan senang hati",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 15,
-            "item": "fragment_sash_3",
-            "feedback": "Peri sangat senang! Dia memberikan fragmen dan mendoakanmu."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Terima tapi minta dibayar lebih",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": -5,
-            "feedback": "Peri kecewa dengan keserakahanmu, tapi tetap menepati janji."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Tolak dengan sopan karena terburu-buru",
-          "isCorrect": true,
-          "effect": {
-            "score": 10,
-            "karma": 0,
-            "feedback": "Peri mengerti dan menunjukkan jalan pintas untukmu."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tolak dan katakan itu bukan urusanmu",
-          "isCorrect": true,
-          "effect": {
-            "score": 0,
-            "karma": -10,
-            "feedback": "Peri tersinggung dan menghilang. Kamu kehilangan kesempatan berharga."
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 40,
-      "tags": ["cooperation", "kindness"]
-    },
-    {
-      "id": "q010",
-      "region": "hutan_biru",
+      "id": "q007",
+      "region": "luminara_city",
       "type": "moral",
-      "category": "ethical_dilemma",
+      "category": "leadership",
       "difficulty": 3,
-      "title": "Dua Petualang",
-      "scenario": "Kamu bertemu dua petualang terluka. Yang satu punya peta menuju mahkota, yang satunya punya obat untuk menyembuhkan luka mereka berdua. Kamu hanya bisa membantu satu orang.",
-      "question": "Siapa yang akan kamu bantu?",
+      "title": "The Resource Dilemma",
+      "scenario": "As a temporary leader, you have limited resources. Two groups need help: one is larger but the situation is less critical; the other is smaller but in dire need.",
+      "question": "How do you allocate resources?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Bantu yang punya obat agar dia bisa sembuh dan menolong temannya",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 20,
-            "item": "hint",
-            "feedback": "Bijak! Keduanya selamat dan mereka berbagi peta denganmu."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Bantu yang punya peta sebagai imbalan informasi",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": -5,
-            "feedback": "Kamu dapat peta, tapi orang lain tidak tertolong."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Coba bantu keduanya meskipun sulit",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 25,
-            "item": "fragment_sash_4",
-            "feedback": "Usahamu yang tulus dihargai! Mereka berdua memberimu fragmen sebagai terima kasih!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tinggalkan keduanya karena bukan tanggung jawabmu",
-          "isCorrect": true,
-          "effect": {
-            "score": 0,
-            "karma": -20,
-            "feedback": "Pilihan yang dingin. Hatimu terasa berat melanjutkan perjalanan."
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 55,
-      "tags": ["wisdom", "sacrifice"]
-    },
-    {
-      "id": "q011",
-      "region": "kota_tepi_laut",
-      "type": "puzzle",
-      "category": "logic",
-      "difficulty": 4,
-      "title": "Teka-Teki Mercusuar",
-      "question": "Mercusuar menyala setiap 3 jam. Jika menyala pukul 03.00, kapan menyala untuk ke-5 kalinya hari ini?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "15.00",
-          "isCorrect": true,
-          "effect": {
-            "score": 200,
-            "karma": 10,
-            "item": "fragment_crown_4",
-            "feedback": "Benar! 03:00→06:00→09:00→12:00→15:00. Fragmen mahkota keempat milikmu!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "18.00",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Terlalu malam. Hitung lagi dengan teliti!"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "12.00",
-          "isCorrect": false,
-          "effect": {
-            "score": 50,
-            "karma": 0,
-            "feedback": "Itu kali keempat. Pertanyaannya kali kelima!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "14.00",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Hampir, tapi intervalnya 3 jam, bukan 2 jam."
-          }
-        }
-      ],
-      "hints": ["Hitung dari 03.00 + (3 jam x 4)", "Kali pertama = 03.00"],
-      "timeLimit": 75,
-      "tags": ["math", "time"]
-    },
-    {
-      "id": "q012",
-      "region": "kota_tepi_laut",
-      "type": "moral",
-      "category": "ethical_dilemma",
-      "difficulty": 3,
-      "title": "Nelayan Tua",
-      "scenario": "Nelayan tua kehilangan jaring satu-satunya karena badai. Dia memintamu membeli jaring baru dengan uang hasil menjual fragmen selempang yang kamu miliki.",
-      "question": "Apa keputusanmu?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Jual fragmen dan belikan jaring untuk nelayan",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 25,
-            "feedback": "Pengorbanan mulia! Nelayan terharu dan memberimu dua fragmen dari tangkapannya."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Bantu nelayan dengan cara lain tanpa menjual fragmen",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 20,
-            "item": "hint",
-            "feedback": "Kreativitasmu menyelamatkan hari! Kamu dapat petunjuk berharga."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Tolak dengan sopan dan jelaskan pentingnya fragmen",
-          "isCorrect": true,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Nelayan mengerti, meski terlihat kecewa."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Abaikan permintaannya",
-          "isCorrect": true,
-          "effect": {
-            "score": 0,
-            "karma": -15,
-            "feedback": "Hatimu terasa berat. Kamu melihat nelayan duduk sedih di pantai."
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 50,
-      "tags": ["sacrifice", "compassion"]
-    },
-    {
-      "id": "q013",
-      "region": "kota_tepi_laut",
-      "type": "puzzle",
-      "category": "logic",
-      "difficulty": 4,
-      "title": "Pulau Jujur dan Pembohong",
-      "question": "Ada dua penduduk: Salah satunya selalu jujur, satunya selalu bohong. Satu orang berkata 'Kami berdua pembohong'. Siapa dia?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Pembohong",
-          "isCorrect": true,
-          "effect": {
-            "score": 200,
-            "karma": 10,
-            "item": "fragment_sash_5",
-            "feedback": "Benar! Orang jujur tidak akan bilang dia pembohong. Fragmen selempang kelima didapat!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Orang jujur",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Tidak mungkin. Orang jujur tidak akan berbohong tentang dirinya."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Keduanya",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Salah satu pasti jujur, salah satu pembohong."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tidak bisa ditentukan",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Sebenarnya bisa! Pikirkan logikanya dengan seksama."
-          }
-        }
-      ],
-      "hints": ["Jika orang jujur bilang 'kami pembohong', itu bohong", "Orang jujur tidak mungkin berbohong"],
-      "timeLimit": 90,
-      "tags": ["logic", "paradox"]
-    },
-    {
-      "id": "q014",
-      "region": "kota_tepi_laut",
-      "type": "event",
-      "category": "lore",
-      "difficulty": 3,
-      "title": "Pedagang Misterius",
-      "scenario": "Pedagang menawarkan: (A) Peta lengkap artefak seharga 100 poin, atau (B) Fragmen gratis tapi kamu kehilangan 1 hint.",
-      "question": "Mana yang kamu pilih?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Beli peta dengan 100 poin",
-          "isCorrect": true,
-          "effect": {
-            "score": -100,
-            "karma": 0,
-            "item": "fragment_crown_5",
-            "feedback": "Investasi bagus! Kamu dapat fragmen mahkota kelima dan peta lengkap."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Ambil fragmen gratis",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 0,
-            "item": "fragment_sash_6",
-            "feedback": "Deal! Kamu dapat fragmen selempang keenam, tapi 1 hint hilang."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Tawar harga dengan pedagang",
-          "isCorrect": true,
-          "effect": {
-            "score": -50,
-            "karma": 5,
-            "item": "fragment_crown_5",
-            "feedback": "Negosiasi berhasil! Kamu dapat peta dengan harga setengahnya."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Tolak kedua tawaran",
-          "isCorrect": true,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Pedagang menghormati keputusanmu dan pergi."
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 45,
-      "tags": ["trade", "decision"]
-    },
-    {
-      "id": "q015",
-      "region": "kota_tepi_laut",
-      "type": "moral",
-      "category": "ethical_dilemma",
-      "difficulty": 4,
-      "title": "Ujian Akhir",
-      "scenario": "Kamu menemukan fragmen terakhir, tapi ada anak kecil yang juga mencarinya untuk menyembuhkan ibunya yang sakit. Dia menangis memohon.",
-      "question": "Apa yang akan kamu lakukan?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Berikan fragmen untuk anak itu dan cari cara lain",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 30,
-            "item": "fragment_crown_6",
-            "feedback": "Kebaikan hatimu menggerakkan hati semesta. Fragmen lain muncul untukmu! Good ending terbuka!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Bagi fragmen jadi dua agar adil",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 15,
-            "feedback": "Solusi kreatif, meski fragmen jadi tidak utuh."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Ambil fragmen tapi bantu anak dengan cara lain",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 5,
-            "item": "fragment_crown_6",
-            "feedback": "Kamu menyelesaikan misi, tapi hatimu was-was."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Ambil fragmen dan pergi cepat",
-          "isCorrect": true,
-          "effect": {
-            "score": 25,
-            "karma": -25,
-            "item": "fragment_crown_6",
-            "feedback": "Tangisan anak membayangimu. Kamu mendapat fragmen, tapi dengan karma buruk."
-          }
-        }
+        {"id": "opt_a", "text": "Prioritize the critical situation first, then help others with remaining resources", "isCorrect": true, "effect": {"score": 100, "karma": 20, "item": "fragment_sash_2", "feedback": "Wise prioritization! You balance urgency with fairness."}},
+        {"id": "opt_b", "text": "Split resources equally regardless of urgency", "isCorrect": true, "effect": {"score": 60, "karma": 5, "feedback": "Fair, but not optimal. Sometimes equal isn't equitable."}},
+        {"id": "opt_c", "text": "Help the larger group to maximize impact", "isCorrect": true, "effect": {"score": 40, "karma": -5, "feedback": "Utilitarian, but you neglected urgent need."}},
+        {"id": "opt_d", "text": "Wait for more information before deciding", "isCorrect": true, "effect": {"score": 20, "karma": -10, "feedback": "Caution is good, but delayed action can be costly."}}
       ],
       "hints": [],
       "timeLimit": 60,
-      "tags": ["compassion", "sacrifice", "final"]
+      "tags": ["ethics", "decision_making"]
+    },
+    {
+      "id": "q008",
+      "region": "luminara_city",
+      "type": "puzzle",
+      "category": "mathematical_thinking",
+      "difficulty": 3,
+      "title": "The Monty Hall Problem",
+      "question": "You're on a game show with 3 doors. Behind one is a prize, behind the others nothing. You pick door 1. The host (who knows what's behind each door) opens door 3, revealing nothing. Should you switch to door 2?",
+      "options": [
+        {"id": "opt_a", "text": "Yes, switch! Probability increases to 2/3 if you switch", "isCorrect": true, "effect": {"score": 180, "karma": 10, "item": "fragment_crown_4", "feedback": "Statistically brilliant! Switching gives you 2/3 chance vs 1/3 if you stay."}},
+        {"id": "opt_b", "text": "No, stay. It's now 50/50 between two doors", "isCorrect": false, "effect": {"score": 40, "karma": 0, "feedback": "Common misconception! The initial probabilities don't reset."}},
+        {"id": "opt_c", "text": "It doesn't matter, both choices are equal", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "Actually, switching doubles your odds!"}},
+        {"id": "opt_d", "text": "Flip a coin to decide", "isCorrect": false, "effect": {"score": 10, "karma": -5, "feedback": "Why leave it to chance when math can guide you?"}}
+      ],
+      "hints": ["Consider the initial probability of your first choice", "The host's knowledge changes the game"],
+      "timeLimit": 90,
+      "tags": ["probability", "counter_intuitive"]
+    },
+    {
+      "id": "q009",
+      "region": "luminara_city",
+      "type": "puzzle",
+      "category": "pattern_recognition",
+      "difficulty": 2,
+      "title": "The Missing Number",
+      "question": "Find the pattern: 1, 1, 2, 3, 5, 8, 13, ?",
+      "options": [
+        {"id": "opt_a", "text": "21", "isCorrect": true, "effect": {"score": 120, "karma": 8, "feedback": "Perfect! This is the Fibonacci sequence (8+13=21)."}},
+        {"id": "opt_b", "text": "18", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Look at the relationship between consecutive numbers."}},
+        {"id": "opt_c", "text": "15", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "The pattern involves addition, not a fixed increment."}},
+        {"id": "opt_d", "text": "20", "isCorrect": false, "effect": {"score": 0, "karma": 0, "feedback": "Close! But check your addition."}}
+      ],
+      "hints": ["Each number is the sum of the previous two", "This is a famous mathematical sequence"],
+      "timeLimit": 60,
+      "tags": ["math", "sequences"]
+    },
+    {
+      "id": "q010",
+      "region": "luminara_city",
+      "type": "moral",
+      "category": "integrity",
+      "difficulty": 2,
+      "title": "The Shortcut",
+      "scenario": "You discover a hidden passage that leads directly to the next region, bypassing all challenges but also missing learning opportunities.",
+      "question": "What do you choose?",
+      "options": [
+        {"id": "opt_a", "text": "Take the proper path and complete all challenges", "isCorrect": true, "effect": {"score": 100, "karma": 15, "item": "hint", "feedback": "True wisdom comes from the journey, not just the destination!"}},
+        {"id": "opt_b", "text": "Use the shortcut but feel guilty about it", "isCorrect": true, "effect": {"score": 50, "karma": -5, "feedback": "You saved time but missed valuable experiences."}},
+        {"id": "opt_c", "text": "Mark the shortcut for later and continue normally", "isCorrect": true, "effect": {"score": 80, "karma": 10, "feedback": "Strategic thinking! Keep options open while staying diligent."}},
+        {"id": "opt_d", "text": "Use the shortcut without hesitation", "isCorrect": true, "effect": {"score": 30, "karma": -15, "feedback": "Efficiency has its place, but growth requires challenge."}}
+      ],
+      "hints": [],
+      "timeLimit": 50,
+      "tags": ["integrity", "growth_mindset"]
+    },
+    {
+      "id": "q011",
+      "region": "mount_resolute",
+      "type": "puzzle",
+      "category": "spatial_reasoning",
+      "difficulty": 3,
+      "title": "The Cube Conundrum",
+      "question": "A cube is painted red on all six faces, then cut into 27 smaller equal cubes. How many small cubes have exactly two red faces?",
+      "options": [
+        {"id": "opt_a", "text": "12", "isCorrect": true, "effect": {"score": 200, "karma": 12, "item": "fragment_crown_5", "feedback": "Excellent spatial reasoning! Edge cubes (excluding corners) = 12."}},
+        {"id": "opt_b", "text": "8", "isCorrect": false, "effect": {"score": 50, "karma": 0, "feedback": "That's the number of corner cubes (with 3 faces)."}},
+        {"id": "opt_c", "text": "6", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "That's the number of face centers (with 1 face)."}},
+        {"id": "opt_d", "text": "24", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "You're counting too many. Focus on edge positions only."}}
+      ],
+      "hints": ["Visualize a 3x3x3 cube", "Two-faced cubes are on edges but not corners"],
+      "timeLimit": 100,
+      "tags": ["geometry", "visualization"]
+    },
+    {
+      "id": "q012",
+      "region": "mount_resolute",
+      "type": "puzzle",
+      "category": "logical_deduction",
+      "difficulty": 3,
+      "title": "The Island of Truth",
+      "question": "On an island, knights always tell the truth and knaves always lie. You meet two people. A says 'We are both knaves.' What are they?",
+      "options": [
+        {"id": "opt_a", "text": "A is a knave, B is a knight", "isCorrect": true, "effect": {"score": 180, "karma": 12, "item": "fragment_sash_3", "feedback": "Perfect logic! A's statement is false (since a knight can't claim to be a knave), making A a knave and B a knight."}},
+        {"id": "opt_b", "text": "Both are knights", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "If both were knights, A's statement would be false, creating a contradiction."}},
+        {"id": "opt_c", "text": "Both are knaves", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "If A were a knave telling the truth about being a knave... contradiction!"}},
+        {"id": "opt_d", "text": "A is a knight, B is a knave", "isCorrect": false, "effect": {"score": 10, "karma": 0, "feedback": "A knight would never claim to be a knave."}}
+      ],
+      "hints": ["What would a knight say about themselves?", "Work backwards from A's statement"],
+      "timeLimit": 90,
+      "tags": ["logic", "deduction"]
+    },
+    {
+      "id": "q013",
+      "region": "mount_resolute",
+      "type": "moral",
+      "category": "perseverance",
+      "difficulty": 3,
+      "title": "The Impossible Climb",
+      "scenario": "You've been climbing for hours and are exhausted. The peak seems unreachable. You can turn back safely or continue with significant risk but potential reward.",
+      "question": "What is your decision?",
+      "options": [
+        {"id": "opt_a", "text": "Rest and reassess, then continue with renewed strategy", "isCorrect": true, "effect": {"score": 120, "karma": 15, "item": "fragment_crown_6", "feedback": "Wise! Perseverance with strategy beats blind determination."}},
+        {"id": "opt_b", "text": "Push through immediately despite exhaustion", "isCorrect": true, "effect": {"score": 80, "karma": 5, "feedback": "Brave, but reckless. Sometimes rest is necessary for success."}},
+        {"id": "opt_c", "text": "Turn back and try another day", "isCorrect": true, "effect": {"score": 60, "karma": 5, "feedback": "Knowing your limits is wisdom, not weakness."}},
+        {"id": "opt_d", "text": "Give up entirely", "isCorrect": true, "effect": {"score": 20, "karma": -15, "feedback": "Quitting denies you the chance to learn from the challenge."}}
+      ],
+      "hints": [],
+      "timeLimit": 55,
+      "tags": ["resilience", "strategic_thinking"]
+    },
+    {
+      "id": "q014",
+      "region": "mount_resolute",
+      "type": "puzzle",
+      "category": "analytical_thinking",
+      "difficulty": 3,
+      "title": "The Birthday Paradox",
+      "question": "In a room of 23 random people, what is the approximate probability that two people share a birthday?",
+      "options": [
+        {"id": "opt_a", "text": "About 50%", "isCorrect": true, "effect": {"score": 180, "karma": 10, "feedback": "Counter-intuitive but correct! The birthday paradox shows probability compounds quickly."}},
+        {"id": "opt_b", "text": "About 6% (23/365)", "isCorrect": false, "effect": {"score": 40, "karma": 0, "feedback": "That would be for one specific date. Think about all possible pairs!"}},
+        {"id": "opt_c", "text": "About 23%", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "It's actually much higher due to pair combinations!"}},
+        {"id": "opt_d", "text": "Nearly 0%", "isCorrect": false, "effect": {"score": 10, "karma": -5, "feedback": "This is the 'paradox' - it's way higher than intuition suggests!"}}
+      ],
+      "hints": ["Consider all possible pairs of people", "It's called a 'paradox' because it's counter-intuitive"],
+      "timeLimit": 80,
+      "tags": ["probability", "statistics"]
+    },
+    {
+      "id": "q015",
+      "region": "mount_resolute",
+      "type": "puzzle",
+      "category": "creative_problem_solving",
+      "difficulty": 3,
+      "title": "The Egg Drop",
+      "question": "You have 2 eggs and a 100-floor building. You need to find the highest floor from which an egg can drop without breaking, using the fewest drops. What's the optimal strategy's maximum drops needed?",
+      "options": [
+        {"id": "opt_a", "text": "14 drops", "isCorrect": true, "effect": {"score": 220, "karma": 15, "item": "fragment_sash_4", "feedback": "Brilliant! Start at floor 14, then 27, 39, 50, etc. Worst case: 14 drops. Perfect strategy!"}},
+        {"id": "opt_b", "text": "50 drops", "isCorrect": false, "effect": {"score": 40, "karma": 0, "feedback": "That's binary search, but you only have 2 eggs!"}},
+        {"id": "opt_c", "text": "10 drops", "isCorrect": false, "effect": {"score": 60, "karma": 0, "feedback": "Close! But with 10 drops you can only guarantee up to 55 floors (10+9+8+...+1)."}},
+        {"id": "opt_d", "text": "100 drops", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "Way too many! There's a much more efficient strategy."}}
+      ],
+      "hints": ["Use decreasing intervals", "First egg establishes range, second egg finds exact floor"],
+      "timeLimit": 120,
+      "tags": ["optimization", "algorithms"]
     },
     {
       "id": "q016",
-      "region": "pulau_awan",
+      "region": "valley_of_wisdom",
       "type": "puzzle",
-      "category": "pattern",
-      "difficulty": 2,
-      "title": "Awan Berwarna",
-      "question": "Awan muncul dengan pola: Biru, Biru, Putih, Biru, Biru, Putih, Biru, Biru, ?",
+      "category": "systems_thinking",
+      "difficulty": 3,
+      "title": "The Prisoner's Dilemma",
+      "question": "Two prisoners can cooperate (stay silent) or defect (betray). If both cooperate: 1 year each. One defects: 0 years for defector, 3 for other. Both defect: 2 years each. What's the Nash equilibrium?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Putih",
-          "isCorrect": true,
-          "effect": {
-            "score": 125,
-            "karma": 5,
-            "feedback": "Tepat! Pola 2 biru 1 putih berulang. Kamu memahami bahasa awan!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Biru",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Coba perhatikan polanya lagi. Ada berapa biru sebelum putih?"
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Kuning",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Tidak ada awan kuning dalam pola ini."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Abu-abu",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Hanya ada dua warna dalam pola ini."
-          }
-        }
+        {"id": "opt_a", "text": "Both defect (even though both cooperating is better overall)", "isCorrect": true, "effect": {"score": 200, "karma": 10, "feedback": "Correct! Rational self-interest leads to suboptimal outcomes - a key insight in game theory."}},
+        {"id": "opt_b", "text": "Both cooperate for mutual benefit", "isCorrect": false, "effect": {"score": 80, "karma": 5, "feedback": "That's the optimal outcome, but not the Nash equilibrium. Without trust, defection is rational."}},
+        {"id": "opt_c", "text": "One cooperates, one defects", "isCorrect": false, "effect": {"score": 40, "karma": 0, "feedback": "This isn't stable - the cooperator would switch to defecting."}},
+        {"id": "opt_d", "text": "Random choice each time", "isCorrect": false, "effect": {"score": 20, "karma": -5, "feedback": "There's a stable strategy based on rational self-interest."}}
       ],
-      "hints": ["Hitung berapa biru sebelum muncul putih", "Pola: BB W BB W BB W..."],
-      "timeLimit": 50,
-      "tags": ["pattern", "observation"]
+      "hints": ["Think about what's rational for each prisoner individually", "Nash equilibrium is when no one can improve by changing strategy alone"],
+      "timeLimit": 100,
+      "tags": ["game_theory", "strategic_thinking"]
     },
     {
       "id": "q017",
-      "region": "hutan_biru",
-      "type": "trivia",
-      "category": "lore",
-      "difficulty": 2,
-      "title": "Legenda Mahes",
-      "question": "Menurut legenda, Mahkota Mahes diciptakan dari kristal apa?",
+      "region": "valley_of_wisdom",
+      "type": "moral",
+      "category": "wisdom",
+      "difficulty": 3,
+      "title": "The Paradox of Knowledge",
+      "scenario": "You've learned that the more you know, the more you realize you don't know. A wise sage offers you a choice: deep knowledge in one area, or broad understanding across many areas.",
+      "question": "Which path do you choose?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Kristal Langit",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 5,
-            "feedback": "Benar! Kristal langit yang berkilauan seperti aurora."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Kristal Laut",
-          "isCorrect": false,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Bukan itu. Mahkota berasal dari tempat yang lebih tinggi."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Kristal Api",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Tidak cocok dengan tema biru. Coba lagi!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Kristal Es",
-          "isCorrect": false,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Hampir, tapi bukan es. Pikirkan yang lebih tinggi dari awan."
-          }
-        }
+        {"id": "opt_a", "text": "Broad understanding - wisdom comes from connecting diverse ideas", "isCorrect": true, "effect": {"score": 150, "karma": 20, "item": "fragment_sash_5", "feedback": "The mark of wisdom! Breadth enables creativity and adaptability."}},
+        {"id": "opt_b", "text": "Deep expertise - mastery requires focus", "isCorrect": true, "effect": {"score": 150, "karma": 15, "feedback": "Also wise! Depth creates true expertise and innovation."}},
+        {"id": "opt_c", "text": "Balance both through lifelong learning", "isCorrect": true, "effect": {"score": 180, "karma": 25, "item": "hint", "feedback": "The highest wisdom! T-shaped knowledge: depth AND breadth."}},
+        {"id": "opt_d", "text": "Knowledge itself is the trap - seek experience instead", "isCorrect": true, "effect": {"score": 120, "karma": 10, "feedback": "Philosophical! Knowledge without experience is incomplete."}}
       ],
-      "hints": ["Mahkota ada di pulau awan", "Tempat tertinggi memiliki kristal ini"],
-      "timeLimit": 40,
-      "tags": ["lore", "trivia"]
+      "hints": [],
+      "timeLimit": 60,
+      "tags": ["philosophy", "growth"]
     },
     {
       "id": "q018",
-      "region": "kota_tepi_laut",
+      "region": "valley_of_wisdom",
       "type": "puzzle",
-      "category": "math",
+      "category": "metacognition",
       "difficulty": 3,
-      "title": "Pelabuhan Kapal",
-      "question": "3 kapal berangkat bersamaan. Kapal A kembali tiap 4 hari, B tiap 6 hari, C tiap 8 hari. Kapan mereka bertemu lagi?",
+      "title": "The Dunning-Kruger Question",
+      "question": "The Dunning-Kruger effect describes what phenomenon?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "24 hari",
-          "isCorrect": true,
-          "effect": {
-            "score": 175,
-            "karma": 5,
-            "feedback": "Sempurna! KPK dari 4, 6, 8 adalah 24. Matematikamu tajam!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "18 hari",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Coba hitung Kelipatan Persekutuan Terkecil (KPK) lagi."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "12 hari",
-          "isCorrect": false,
-          "effect": {
-            "score": 50,
-            "karma": 0,
-            "feedback": "Itu kelipatan 4 dan 6, tapi bukan kelipatan 8."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "32 hari",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Terlalu lama. Cari angka yang lebih kecil."
-          }
-        }
+        {"id": "opt_a", "text": "People with low ability overestimate their competence, while experts underestimate theirs", "isCorrect": true, "effect": {"score": 160, "karma": 15, "feedback": "Exactly! Self-awareness of ignorance is a sign of wisdom."}},
+        {"id": "opt_b", "text": "Experts always know more than novices", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "True, but that's not the Dunning-Kruger effect specifically."}},
+        {"id": "opt_c", "text": "Confidence and competence are always correlated", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "Actually, the effect shows they're often inversely related!"}},
+        {"id": "opt_d", "text": "Learning gets easier over time", "isCorrect": false, "effect": {"score": 10, "karma": 0, "feedback": "That's not what this cognitive bias describes."}}
       ],
-      "hints": ["Cari KPK (Kelipatan Persekutuan Terkecil)", "24 bisa dibagi 4, 6, dan 8"],
-      "timeLimit": 80,
-      "tags": ["math", "lcm"]
+      "hints": ["Think about confidence vs. competence", "Why might beginners feel more confident than they should?"],
+      "timeLimit": 70,
+      "tags": ["psychology", "self_awareness"]
     },
     {
       "id": "q019",
-      "region": "pulau_awan",
-      "type": "event",
-      "category": "lore",
-      "difficulty": 1,
-      "title": "Burung Pembawa Pesan",
-      "scenario": "Seekor burung biru membawa gulungan pesan: 'Kebaikan akan dibalas dengan kebaikan.' Apa maknanya?",
-      "question": "Pilih respon terbaikmu:",
+      "region": "valley_of_wisdom",
+      "type": "puzzle",
+      "category": "lateral_thinking",
+      "difficulty": 2,
+      "title": "The Burning Ropes",
+      "question": "You have two ropes that each take exactly 60 minutes to burn, but burn unevenly. How can you measure exactly 45 minutes?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Karma baik membawa berkah",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 10,
-            "feedback": "Benar! Burung mengangguk dan terbang, meninggalkan bulu bercahaya."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Ini hanya pesan kosong",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": -5,
-            "feedback": "Burung terlihat kecewa dan terbang menjauh."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Pesan untuk orang lain, bukan untukku",
-          "isCorrect": false,
-          "effect": {
-            "score": 10,
-            "karma": 0,
-            "feedback": "Kamu mengabaikan pesan bijak. Burung terbang tanpa meninggalkan apapun."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Simpan pesan untuk direnungkan nanti",
-          "isCorrect": true,
-          "effect": {
-            "score": 30,
-            "karma": 5,
-            "feedback": "Bijak. Burung memberikan petunjuk kecil."
-          }
-        }
+        {"id": "opt_a", "text": "Light both ends of rope 1 and one end of rope 2. When rope 1 burns out (30 min), light the other end of rope 2 (burns remaining 30 min in 15 min) = 45 min total", "isCorrect": true, "effect": {"score": 200, "karma": 12, "item": "fragment_sash_6", "feedback": "Ingenious lateral thinking! You've mastered creative problem-solving!"}},
+        {"id": "opt_b", "text": "Burn 3/4 of one rope", "isCorrect": false, "effect": {"score": 20, "karma": 0, "feedback": "The ropes burn unevenly, so you can't measure 3/4."}},
+        {"id": "opt_c", "text": "Light one rope, then the other 15 minutes later", "isCorrect": false, "effect": {"score": 30, "karma": 0, "feedback": "How would you measure those 15 minutes?"}},
+        {"id": "opt_d", "text": "It's impossible with uneven burning", "isCorrect": false, "effect": {"score": 0, "karma": -10, "feedback": "Don't give up! Creative thinking can solve this."}}
       ],
-      "hints": [],
-      "timeLimit": 35,
-      "tags": ["wisdom", "karma"]
+      "hints": ["You can light ropes from multiple ends", "Burning from both ends doubles the speed"],
+      "timeLimit": 110,
+      "tags": ["creativity", "lateral_thinking"]
     },
     {
       "id": "q020",
-      "region": "hutan_biru",
-      "type": "puzzle",
-      "category": "riddle",
-      "difficulty": 2,
-      "title": "Teka-Teki Peri",
-      "question": "Aku punya kaki tapi tak bisa jalan, punya punggung tapi bukan hewan. Apakah aku?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Kursi",
-          "isCorrect": true,
-          "effect": {
-            "score": 125,
-            "karma": 5,
-            "feedback": "Hebat! Kursi punya kaki dan sandaran (punggung). Peri terkesan!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Meja",
-          "isCorrect": false,
-          "effect": {
-            "score": 25,
-            "karma": 0,
-            "feedback": "Meja punya kaki, tapi tidak punya punggung."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Gunung",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Gunung punya punggung tapi tidak punya kaki."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Pohon",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Bukan itu. Pikirkan benda buatan manusia."
-          }
-        }
-      ],
-      "hints": ["Benda yang biasa ada di rumah", "Tempat duduk"],
-      "timeLimit": 45,
-      "tags": ["riddle", "creative"]
-    },
-    {
-      "id": "q021",
-      "region": "kota_tepi_laut",
+      "region": "valley_of_wisdom",
       "type": "moral",
-      "category": "ethical_dilemma",
+      "category": "final_wisdom",
       "difficulty": 3,
-      "title": "Harta Karun Bersama",
-      "scenario": "Kamu dan tiga petualang lain menemukan peti harta karun dengan 4 artefak. Salah satunya adalah fragmen yang kamu butuhkan.",
-      "question": "Bagaimana cara pembagiannya?",
+      "title": "The Ultimate Choice",
+      "scenario": "You've collected all fragments. The ancient voice asks: 'What is the true treasure you've gained on this quest?'",
+      "question": "Your answer?",
       "options": [
-        {
-          "id": "opt_a",
-          "text": "Bagi rata, masing-masing dapat 1 artefak",
-          "isCorrect": true,
-          "effect": {
-            "score": 100,
-            "karma": 20,
-            "feedback": "Adil! Semua puas dengan pembagian yang setara."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Kamu ambil fragmen, sisanya untuk yang lain",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 10,
-            "feedback": "Fokus pada tujuan, tapi tetap berbagi. Keputusan pragmatis."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Ambil 2 artefak karena kamu yang menemukan peti",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": -10,
-            "feedback": "Serakah. Petualang lain protes tapi terpaksa menerima."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Ambil semua dengan paksa",
-          "isCorrect": true,
-          "effect": {
-            "score": 25,
-            "karma": -30,
-            "feedback": "Tindakan egois! Kamu membuat musuh dan hatimu gelap."
-          }
-        }
+        {"id": "opt_a", "text": "The knowledge and wisdom from each challenge", "isCorrect": true, "effect": {"score": 200, "karma": 30, "feedback": "True wisdom! The journey transformed you more than any artifact could."}},
+        {"id": "opt_b", "text": "The crown and sash themselves", "isCorrect": true, "effect": {"score": 100, "karma": 0, "feedback": "Material rewards have value, but wisdom is eternal."}},
+        {"id": "opt_c", "text": "The confidence to face any challenge", "isCorrect": true, "effect": {"score": 180, "karma": 25, "feedback": "Excellent! Self-efficacy is one of life's greatest treasures."}},
+        {"id": "opt_d", "text": "The realization that the quest never truly ends", "isCorrect": true, "effect": {"score": 220, "karma": 35, "feedback": "Profound wisdom! Life itself is an endless quest of growth and discovery."}}
       ],
       "hints": [],
-      "timeLimit": 50,
-      "tags": ["fairness", "cooperation"]
-    },
-    {
-      "id": "q022",
-      "region": "pulau_awan",
-      "type": "trivia",
-      "category": "lore",
-      "difficulty": 1,
-      "title": "Warna Mahes",
-      "question": "Warna dominan dalam petualangan Mahes adalah?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Biru Muda",
-          "isCorrect": true,
-          "effect": {
-            "score": 75,
-            "karma": 5,
-            "feedback": "Sempurna! Light blue adalah tema utama perjalanan ini."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Merah",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Bukan warna yang dominan di sini."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Hijau",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Ada di hutan, tapi bukan warna utama."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Hitam",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Terlalu gelap untuk petualangan yang cerah ini."
-          }
-        }
-      ],
-      "hints": ["Lihat sekeliling, warna apa yang mendominasi?", "Seperti warna langit cerah"],
-      "timeLimit": 30,
-      "tags": ["trivia", "theme"]
-    },
-    {
-      "id": "q023",
-      "region": "hutan_biru",
-      "type": "event",
-      "category": "lore",
-      "difficulty": 2,
-      "title": "Sumber Air Ajaib",
-      "scenario": "Kamu menemukan sumber air yang bisa menambah karma atau score. Tapi hanya bisa pilih satu!",
-      "question": "Air mana yang akan kamu minum?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Air Karma (tambah 20 karma)",
-          "isCorrect": true,
-          "effect": {
-            "score": 0,
-            "karma": 20,
-            "feedback": "Karmamu meningkat! Kamu merasa lebih damai."
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "Air Score (tambah 150 poin)",
-          "isCorrect": true,
-          "effect": {
-            "score": 150,
-            "karma": 0,
-            "feedback": "Skormu melonjak! Kamu merasa lebih percaya diri."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "Tidak minum sama sekali",
-          "isCorrect": true,
-          "effect": {
-            "score": 50,
-            "karma": 10,
-            "feedback": "Kehati-hatianmu dihargai. Kamu dapat bonus kecil untuk kedua aspek."
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "Minum kedua-duanya (rakus)",
-          "isCorrect": true,
-          "effect": {
-            "score": -50,
-            "karma": -10,
-            "feedback": "Keserakahanmu membuat airnya jadi pahit. Malah kehilangan poin!"
-          }
-        }
-      ],
-      "hints": [],
-      "timeLimit": 35,
-      "tags": ["choice", "strategy"]
-    },
-    {
-      "id": "q024",
-      "region": "kota_tepi_laut",
-      "type": "puzzle",
-      "category": "riddle",
-      "difficulty": 4,
-      "title": "Teka-Teki Kapten",
-      "question": "Kapten kapal berusia 45 tahun. Kapalnya punya 25 awakia. Berapa umur kapal tersebut?",
-      "options": [
-        {
-          "id": "opt_a",
-          "text": "Tidak bisa ditentukan dari informasi yang diberikan",
-          "isCorrect": true,
-          "effect": {
-            "score": 200,
-            "karma": 10,
-            "feedback": "Brilian! Soal jebakan. Tidak ada info tentang umur kapal. Kapten terkesan!"
-          }
-        },
-        {
-          "id": "opt_b",
-          "text": "70 tahun (45+25)",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Jangan terjebak! Angka tidak selalu harus dijumlahkan."
-          }
-        },
-        {
-          "id": "opt_c",
-          "text": "20 tahun (45-25)",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Bukan tentang pengurangan. Baca pertanyaannya lagi!"
-          }
-        },
-        {
-          "id": "opt_d",
-          "text": "45 tahun (sama dengan kapten)",
-          "isCorrect": false,
-          "effect": {
-            "score": 0,
-            "karma": 0,
-            "feedback": "Tidak ada hubungan antara umur kapten dan kapal."
-          }
-        }
-      ],
-      "hints": ["Ini soal jebakan!", "Informasi yang diberikan tidak relevan dengan pertanyaan"],
       "timeLimit": 70,
-      "tags": ["riddle", "trick", "logic"]
+      "tags": ["wisdom", "reflection", "growth"]
     }
   ]
 }

@@ -1,6 +1,6 @@
 export interface Question {
   id: string;
-  region: 'pulau_awan' | 'hutan_biru' | 'kota_tepi_laut';
+  region: 'emerald_forest' | 'luminara_city' | 'mount_resolute' | 'valley_of_wisdom';
   type: 'puzzle' | 'moral' | 'trivia' | 'event';
   category: string;
   difficulty: number;

@@ -13,26 +13,34 @@ interface RegionMapProps {
 const regions = [
   {
     id: 1,
-    name: 'pulau_awan',
-    title: 'Pulau Awan',
-    description: 'Pulau mengambang di langit dengan arsitektur kuno',
+    name: 'emerald_forest',
+    title: 'Emerald Forest',
+    description: 'A mystical woodland where logic and nature intertwine',
     image: region1Bg,
     challenges: 5
   },
   {
     id: 2,
-    name: 'hutan_biru',
-    title: 'Hutan Biru',
-    description: 'Hutan mistis dengan flora bercahaya biru',
+    name: 'luminara_city',
+    title: 'Luminara City',
+    description: 'The radiant metropolis of wisdom and enlightenment',
     image: region2Bg,
     challenges: 5
   },
   {
     id: 3,
-    name: 'kota_tepi_laut',
-    title: 'Kota Tepi Laut',
-    description: 'Pelabuhan kuno dengan mercusuar legendaris',
+    name: 'mount_resolute',
+    title: 'Mount Resolute',
+    description: 'The peak of perseverance and analytical mastery',
     image: region3Bg,
+    challenges: 5
+  },
+  {
+    id: 4,
+    name: 'valley_of_wisdom',
+    title: 'Valley of Wisdom',
+    description: 'The sacred ground where knowledge meets understanding',
+    image: region1Bg,
     challenges: 5
   }
 ];
@@ -59,10 +67,10 @@ export const RegionMap = ({ progress, onSelectRegion }: RegionMapProps) => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12 fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Peta Dunia Mahes
+            Quest Map - Mahes Quest
           </h2>
           <p className="text-lg text-muted-foreground">
-            Pilih region untuk memulai petualanganmu
+            Choose a region to begin your intellectual adventure
           </p>
         </div>
 

@@ -43,14 +43,14 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
         <div className="mb-8 fade-in">
           <Sparkles className="w-16 h-16 mx-auto mb-4 text-primary animate-pulse" />
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-foreground drop-shadow-lg">
-            Mahes Adventure
+            Mahes Quest
           </h1>
           <div className="w-32 h-1 bg-primary mx-auto rounded-full shadow-glow" />
         </div>
 
         {/* Tagline */}
         <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-2xl mx-auto">
-          Temukan Mahkota Mahes dan Selempang Biru Muda yang hilang di 3 region misterius
+          Quest of Time and Mind - An intellectual adventure through logic, creativity, and wisdom
         </p>
 
         {/* CTA Buttons */}
@@ -98,9 +98,9 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
         {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-3xl mx-auto">
           {[
-            { icon: Map, title: '3 Region Mistis', desc: 'Pulau Awan, Hutan Biru, Kota Tepi Laut' },
-            { icon: BookOpen, title: '24+ Tantangan', desc: 'Puzzle, kuis moral, dan event interaktif' },
-            { icon: Trophy, title: 'Multiple Endings', desc: 'Keputusanmu menentukan nasib' }
+            { icon: Map, title: '4 Elegant Regions', desc: 'Emerald Forest, Luminara City, Mount Resolute, Valley of Wisdom' },
+            { icon: BookOpen, title: '20+ Challenges', desc: 'Logic puzzles, critical thinking, and moral dilemmas' },
+            { icon: Trophy, title: 'Multiple Endings', desc: 'Your choices shape your destiny' }
           ].map((feature, i) => {
             const Icon = feature.icon;
             return (
@@ -130,18 +130,18 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
           <div className="space-y-4 text-left">
             <div>
               <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
-                <span>🎯</span> Tujuan
+                <span>🎯</span> Objective
               </h3>
               <p className="text-muted-foreground">
-                Kumpulkan 6 Fragmen Mahkota dan 6 Fragmen Selempang dengan menjelajahi 3 region dan menyelesaikan tantangan.
+                Collect 6 Crown Fragments and 6 Sash Fragments by exploring 4 regions and completing intellectual challenges.
               </p>
             </div>
             <div>
               <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
-                <span>🗺️</span> Alur Permainan
+                <span>🗺️</span> Quest Flow
               </h3>
               <p className="text-muted-foreground">
-                Landing → Setup Pemain → Region 1 (Pulau Awan) → Region 2 (Hutan Biru) → Region 3 (Kota Tepi Laut) → Ending
+                Landing → Player Setup → Emerald Forest → Luminara City → Mount Resolute → Valley of Wisdom → Ending
               </p>
             </div>
             <div>
@@ -174,29 +174,23 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
             </DialogTitle>
           </DialogHeader>
           <div className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium mb-3">Volume Musik</label>
-              <input 
-                type="range" 
-                min="0" 
-                max="100" 
-                defaultValue="70" 
-                className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-3">Volume Efek Suara</label>
-              <input 
-                type="range" 
-                min="0" 
-                max="100" 
-                defaultValue="80" 
-                className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
-              />
-            </div>
-            <div className="flex items-center justify-between p-3 rounded-lg bg-secondary/30">
-              <span className="text-sm font-medium">Mode Gelap</span>
-              <input type="checkbox" className="w-5 h-5 accent-primary cursor-pointer" />
+            <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+              <h3 className="font-semibold text-destructive mb-2">Reset Player Data</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                This will permanently delete all your game progress, scores, and achievements.
+              </p>
+              <Button 
+                variant="destructive"
+                onClick={() => {
+                  if (confirm('Are you sure? This action cannot be undone!')) {
+                    localStorage.clear();
+                    window.location.reload();
+                  }
+                }}
+                className="w-full"
+              >
+                Reset All Data
+              </Button>
             </div>
           </div>
         </DialogContent>

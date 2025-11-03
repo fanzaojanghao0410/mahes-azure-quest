@@ -75,7 +75,9 @@ export class GameManager {
   }
 
   getQuestions(): Question[] {
-    return questionsData.questions as Question[];
+    const questions = questionsData.questions as Question[];
+    // Randomize question order for each game
+    return [...questions].sort(() => Math.random() - 0.5);
   }
 
   getQuestionsByRegion(region: string): Question[] {
