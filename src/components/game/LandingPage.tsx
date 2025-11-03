@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Sparkles, Play, Trophy, Settings, HelpCircle, Map, BookOpen } from 'lucide-react';
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import heroImage from '@/assets/hero.jpg';
 
 interface LandingPageProps {
@@ -126,6 +126,7 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
               <HelpCircle className="w-6 h-6 text-primary" />
               Cara Bermain
             </DialogTitle>
+            <DialogDescription>Panduan lengkap untuk bermain Mahes Quest</DialogDescription>
           </DialogHeader>
           <div className="space-y-4 text-left">
             <div>
@@ -166,30 +167,34 @@ export const LandingPage = ({ onStartGame, onShowLeaderboard }: LandingPageProps
 
       {/* Settings Modal */}
       <Dialog open={showSettings} onOpenChange={setShowSettings}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-2xl flex items-center gap-2">
               <Settings className="w-6 h-6 text-primary" />
               Pengaturan
             </DialogTitle>
+            <DialogDescription>Kelola data permainan Anda</DialogDescription>
           </DialogHeader>
-          <div className="space-y-6">
-            <div className="p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
-              <h3 className="font-semibold text-destructive mb-2">Reset Player Data</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                This will permanently delete all your game progress, scores, and achievements.
+          <div className="space-y-4 py-4">
+            <div className="space-y-3">
+              <h3 className="font-semibold text-base">Reset Data Akun</h3>
+              <p className="text-sm text-muted-foreground">
+                Hapus semua progres permainan (level, fragment, dan crown) dan mulai dari awal.
               </p>
               <Button 
                 variant="destructive"
                 onClick={() => {
-                  if (confirm('Are you sure? This action cannot be undone!')) {
-                    localStorage.clear();
+                  if (window.confirm('Apakah kamu yakin ingin mereset data akun? Semua progres akan hilang.')) {
+                    localStorage.removeItem('mahesAdventure_saveSlot1');
+                    localStorage.removeItem('mahesAdventure_leaderboard');
+                    alert('Data akun berhasil direset.');
+                    setShowSettings(false);
                     window.location.reload();
                   }
                 }}
                 className="w-full"
               >
-                Reset All Data
+                Reset Data Akun
               </Button>
             </div>
           </div>

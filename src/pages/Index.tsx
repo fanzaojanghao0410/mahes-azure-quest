@@ -65,38 +65,56 @@ const Index = () => {
   };
 
   const handleSelectRegion = (regionId: number) => {
-    // Get region questions
+    // Update current region
+    const newState = {
+      ...gameState,
+      progress: {
+        ...gameState.progress,
+        currentRegion: regionId
+      }
+    };
+    setGameState(newState);
+
+    // Get region questions based on formal region names
     const regionMap = {
-      1: 'pulau_awan',
-      2: 'hutan_biru',
-      3: 'kota_tepi_laut'
+      1: 'emerald_forest',
+      2: 'luminara_city',
+      3: 'mount_resolute',
+      4: 'valley_of_wisdom'
     };
     
     const questions = gameManager.getQuestionsByRegion(regionMap[regionId as keyof typeof regionMap]);
     const uncompletedQuestions = questions.filter(
-      q => !gameState.progress.completedChallenges.includes(q.id)
+      q => !newState.progress.completedChallenges.includes(q.id)
     );
 
     if (uncompletedQuestions.length === 0) {
-      // Region completed, unlock next
-      if (regionId < 3 && !gameState.progress.unlockedRegions.includes(regionId + 1)) {
-        const newState = {
-          ...gameState,
+      // Region completed
+      toast({
+        title: '✅ Region Selesai!',
+        description: 'Semua pertanyaan di region ini telah diselesaikan. Pilih region lain atau lanjutkan petualangan!',
+        duration: 3000
+      });
+      
+      // Unlock next region if not already unlocked
+      if (regionId < 4 && !newState.progress.unlockedRegions.includes(regionId + 1)) {
+        const updatedState = {
+          ...newState,
           progress: {
-            ...gameState.progress,
-            currentRegion: regionId + 1,
-            unlockedRegions: [...gameState.progress.unlockedRegions, regionId + 1]
+            ...newState.progress,
+            unlockedRegions: [...newState.progress.unlockedRegions, regionId + 1]
           }
         };
-        setGameState(newState);
+        setGameState(updatedState);
         
         toast({
-          title: '🎉 Region Selesai!',
-          description: `Region ${regionId + 1} telah terbuka!`
+          title: '🎉 Region Baru Terbuka!',
+          description: `Selamat! Region ${regionId + 1} sekarang dapat diakses!`,
+          duration: 4000
         });
-      } else if (regionId === 3) {
+      } else if (regionId === 4 && newState.progress.completedChallenges.length >= 20) {
         // All regions completed, show ending
-        handleGameComplete();
+        setTimeout(() => handleGameComplete(), 1000);
       }
       return;
     }
@@ -158,13 +176,42 @@ const Index = () => {
 
   const handleContinueFromFeedback = () => {
     setCurrentAnswer(null);
-    setCurrentQuestion(null);
     
-    // Check if all challenges completed
-    if (gameState.progress.completedChallenges.length >= 24) {
-      handleGameComplete();
+    // Get current region questions
+    const regionMap = {
+      1: 'emerald_forest',
+      2: 'luminara_city',
+      3: 'mount_resolute',
+      4: 'valley_of_wisdom'
+    };
+    
+    const currentRegionQuestions = gameManager.getQuestionsByRegion(
+      regionMap[gameState.progress.currentRegion as keyof typeof regionMap]
+    );
+    
+    const uncompletedInRegion = currentRegionQuestions.filter(
+      q => !gameState.progress.completedChallenges.includes(q.id)
+    );
+
+    // If there are more questions in this region, show the next one
+    if (uncompletedInRegion.length > 0) {
+      setCurrentQuestion(uncompletedInRegion[0]);
+      setPhase('challenge');
     } else {
+      // Region completed, return to map
+      setCurrentQuestion(null);
       setPhase('map');
+      
+      toast({
+        title: '🎊 Region Selesai!',
+        description: 'Semua pertanyaan di region ini telah diselesaikan. Lanjutkan petualangan!',
+        duration: 3000
+      });
+      
+      // Check if all challenges completed
+      if (gameState.progress.completedChallenges.length >= 20) {
+        setTimeout(() => handleGameComplete(), 1500);
+      }
     }
   };
 
